@@ -1,7 +1,9 @@
 (ns org.example.request-impl
   (:use compojure.core
+        [migae.memcache :as mc]
         [ring.middleware.params :only [wrap-params]]
         [ring.middleware.file-info :only [wrap-file-info]])
+  (:refer-clojure :exclude [contains? get])
   (:require [compojure.route :as route]))
 
 (defroutes request-routes
